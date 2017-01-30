@@ -40,4 +40,17 @@ class NotesController extends Controller
 
     	return back();
     }
+
+    public function edit(Note $note, Card $card)
+    {
+    	return view('notes.edit',compact('note','card'));
+    }
+
+    public function update(Request $request, Note $note)
+    {
+    	$note->update($request->all());
+    	
+    	return back();
+
+    }
 }
