@@ -34,9 +34,15 @@ class NotesController extends Controller
     	$card->notes()->create($request->all());
     	*/
 
-    	$card->addNote(
-    		new Note($request->all())
-    		);
+        $this->validate($request, [
+            'body' => 'required|min:10', 'unique'
+            ]);
+
+        $note = new Note($request->all());
+
+        #$note->by(Auth::user());
+
+    	$card->addNote($note, 1);
 
     	return back();
     }
