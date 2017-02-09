@@ -32,7 +32,6 @@ class CardsController extends Controller
     public function show(Card $card)
     {
         $card->load('notes.user');
-        #$card->load('notes.user');
 
         #return $card;
 

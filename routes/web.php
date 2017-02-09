@@ -12,7 +12,9 @@
 */
 
 Route::group(['middleware' => ['web']], function() {
+
 	Route::get('/', 'PagesController@home');
+	Route::get('/test', 'PagesController@test');
 	Route::get('about', 'PagesController@about');
 	Route::get('cards', 'CardsController@index');
 	Route::get('cards/{card}', 'CardsController@show');
@@ -58,4 +60,11 @@ Route::get('/about', function () {
     return view('pages.about');
 });
 */
+Route::get('dashboard','HomeController@index');
 
+Auth::routes();
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
